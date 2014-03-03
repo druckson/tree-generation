@@ -5,8 +5,17 @@
 using namespace std;
 
 Node::Node() {
-    this->primary = unique_ptr<ITreePart>(new Bud());
-    this->secondary = unique_ptr<ITreePart>(new Bud());
+
+}
+
+Node::Node(ITreePart *branch1, ITreePart *branch2) {
+    if (branch1) {
+        this->primary.reset(branch1);
+    }
+
+    if (branch2) {
+        this->secondary.reset(branch2);
+    }
 }
 
 ITreePart* Node::grow() {
@@ -34,6 +43,11 @@ void Node::draw() {
 
 void Node::print() {
     cout << "Node: " << sizeof(*this) << endl;
-    this->primary->print();
-    this->secondary->print();
+    if (this->primary) {
+        this->primary->print();
+    }
+
+    if (this->secondary) {
+        this->secondary->print();
+    }
 }
