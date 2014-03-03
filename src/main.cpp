@@ -1,22 +1,23 @@
 #include "TreeViewer.h"
 #include "tree/Tree.h"
+#include "tree/Node.h"
+#include "tree/Bud.h"
 #include <memory>
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
-int main() {
-    //unique_ptr<TreeViewer> viewer(new TreeViewer());
+int main(int argc, char **argv) {
+    unique_ptr<Tree> tree(new Tree());
 
-    //unique_ptr<TreeGenerator> gen;
-    //auto tree = gen->generate(2);
-    auto tree = Tree();
-
-    for (int i=0; i<2; i++) {
-        tree.grow();
+    int growCount = 0;
+    if (argc > 1) {
+        growCount = atoi(argv[1]);
+        cout << "Grow Count: " << growCount << endl;
     }
 
-    tree.print();
-    //while(true) {
-    //    viewer->draw(tree.get());
-    //}
+    for (int i=0; i<growCount; i++) {
+        tree->grow();
+        cout << "Grow: " << i+1 << endl;
+    }
 }
