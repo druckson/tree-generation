@@ -5,18 +5,19 @@
 #include "Internode.h"
 using namespace std;
 
-Bud::Bud() {
+Bud::Bud() {}
 
+Bud::Bud(BudFate fate) {
+    this->fate = Branch;
 }
 
 ITreePart* Bud::grow() {
-    auto node = new Node(); 
-    //auto internode = new Internode(); 
+    auto internode = new Internode(); 
+    auto node = new Node(new Bud(), new Bud()); 
     //node->parent = internode;
-    //internode->child.reset(node);
+    internode->child.reset(node);
     //internode->parent = parent;
-    //return internode;
-    return node;
+    return internode;
 }
 
 void Bud::draw() {
