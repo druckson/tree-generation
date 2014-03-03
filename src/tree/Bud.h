@@ -8,15 +8,19 @@
 //      Die
 #include <memory>
 #include "ITreePart.h"
-#include "Node.h"
-#include "Internode.h"
 using namespace std;
 
-class Bud : public ITreePart {
-    ITreePart *parent;
+enum BudFate {
+    Branch,
+    Flower,
+    Dormant
+};
 
+class Bud : public ITreePart {
+    BudFate fate;
 public:
     Bud();
+    Bud(BudFate fate);
     ITreePart* grow();
     void draw();
     void print();
