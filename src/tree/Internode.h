@@ -6,7 +6,6 @@
 using namespace std;
 
 struct Internode : public ITreePart {
-    ITreePart *parent;
     unique_ptr<ITreePart> child;
 
     ITreePart* grow();
