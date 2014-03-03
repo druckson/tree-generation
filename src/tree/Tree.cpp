@@ -3,7 +3,7 @@
 using namespace std;
 
 Tree::Tree() {
-    this->shoot = unique_ptr<ITreePart>(new Bud());
+    this->shoot.reset(new Bud());
 }
 
 void Tree::draw() {
@@ -19,5 +19,7 @@ void Tree::grow() {
 
 void Tree::print() {
     cout << "Tree: " << sizeof(*this) << endl;
-    this->shoot->print();
+    if (this->shoot) {
+        this->shoot->print();
+    }
 }
