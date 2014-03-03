@@ -3,7 +3,6 @@
 using namespace std;
 
 ITreePart* Internode::grow() {
-    cout << "Internode" << endl;
     if (this->child) {
         this->child->grow();
     }
@@ -16,5 +15,7 @@ void Internode::draw() {
 
 void Internode::print() {
     cout << "Internode: " << sizeof(*this) << endl;
-    this->child->print();
+    if (this->child) {
+        this->child->print();
+    }
 }
