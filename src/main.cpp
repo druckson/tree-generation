@@ -8,6 +8,7 @@
 using namespace std;
 
 int main(int argc, char **argv) {
+    unique_ptr<TreeViewer> viewer;
     unique_ptr<Tree> tree(new Tree());
 
     int growCount = 0;
@@ -20,4 +21,7 @@ int main(int argc, char **argv) {
         tree->grow();
         cout << "Grow: " << i+1 << endl;
     }
+    cout << "Exiting" << endl;
+    tree->print();
+    viewer->draw(tree.get());
 }
