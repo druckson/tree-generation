@@ -37,8 +37,13 @@ ITreePart* Node::grow() {
 }
 
 void Node::draw() {
-    this->primary->draw();
-    this->secondary->draw();
+    if (this->primary) {
+        this->primary->draw();
+    }
+
+    if (this->secondary) {
+        this->secondary->draw();
+    }
 }
 
 void Node::print() {

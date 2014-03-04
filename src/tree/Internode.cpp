@@ -1,4 +1,6 @@
 #include "Internode.h"
+#include "../Vec3.h"
+#include "../shapes.h"
 #include <iostream>
 using namespace std;
 
@@ -10,7 +12,11 @@ ITreePart* Internode::grow() {
 }
 
 void Internode::draw() {
-   this->child->draw(); 
+    cylinder(1.0f, 8, Vec3(), Vec3());
+
+    if (this->child) {
+        this->child->draw(); 
+    }
 }
 
 void Internode::print() {
