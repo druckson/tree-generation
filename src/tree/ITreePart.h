@@ -1,11 +1,12 @@
 #ifndef ITREEPART_H
 #define ITREEPART_H
 #include "../display/MeshCollection.h"
-#include "../Vec3.h"
+#include <Eigen/Geometry>
+using namespace Eigen;
 
 class ITreePart {
     ITreePart *parent;
-    Vec3 position;
+    Vector3f position;
 public:
     virtual ~ITreePart() {}
     virtual ITreePart* grow() = 0;

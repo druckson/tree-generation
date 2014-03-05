@@ -1,7 +1,7 @@
 #include "Internode.h"
-#include "../Vec3.h"
 #include "../display/MeshCollection.h"
 #include <iostream>
+#include <Eigen/Geometry>
 using namespace std;
 
 ITreePart* Internode::grow() {
@@ -12,7 +12,8 @@ ITreePart* Internode::grow() {
 }
 
 void Internode::draw(MeshCollection *meshes) {
-    meshes->AddCylinder(0.1f, 10, Vec3(), Vec3());
+    meshes->AddCylinder(0.1f, 10, 
+        Eigen::Vector3f(), Eigen::Vector3f());
 
     if (this->child) {
         this->child->draw(meshes);
