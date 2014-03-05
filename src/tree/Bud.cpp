@@ -23,7 +23,7 @@ ITreePart* Bud::grow() {
         }
 
         BudFate fate2;
-        if (rand() % 100 < 1) {
+        if (rand() % 100 < 100) {
             fate2 = Branch;
         } else {
             fate2 = Dormant;
@@ -39,7 +39,7 @@ ITreePart* Bud::grow() {
     }
 }
 
-void Bud::draw() {}
+void Bud::draw(MeshCollection *mesh) {}
 
 void Bud::print() {
     cout << "Bud: " << sizeof(*this) << endl;

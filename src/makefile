@@ -1,4 +1,4 @@
-HEADERS = tree/Bud.h tree/Node.h tree/Internode.h tree/Tree.h tree/ITreePart.h TreeViewer.h shapes.h TreeViewer.h Vec3.h
+HEADERS = tree/Bud.h tree/Node.h tree/Internode.h tree/Tree.h tree/ITreePart.h display/TreeViewer.h display/MeshCollection.h display/Mesh.h Vec3.h
 SOURCE = main.cpp tree/Bud.cpp tree/Node.cpp tree/Internode.cpp tree/Tree.cpp
 
 FLAGS = -std=c++11 -g

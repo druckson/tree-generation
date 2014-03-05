@@ -36,13 +36,13 @@ ITreePart* Node::grow() {
     return this;
 }
 
-void Node::draw() {
+void Node::draw(MeshCollection *meshes) {
     if (this->primary) {
-        this->primary->draw();
+        this->primary->draw(meshes);
     }
 
     if (this->secondary) {
-        this->secondary->draw();
+        this->secondary->draw(meshes);
     }
 }
 

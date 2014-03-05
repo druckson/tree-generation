@@ -6,8 +6,8 @@ Tree::Tree() {
     this->shoot.reset(new Bud());
 }
 
-void Tree::draw() {
-    this->shoot->draw();
+void Tree::draw(MeshCollection *meshes) {
+    this->shoot->draw(meshes);
 }
 
 void Tree::grow() {

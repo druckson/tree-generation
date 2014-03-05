@@ -12,7 +12,7 @@ class Tree {
 public:
     Tree();
     void grow();
-    void draw();
+    void draw(MeshCollection *meshes);
     void print();
 };
 

@@ -1,14 +1,15 @@
-#include "TreeViewer.h"
+#include "display/TreeViewer.h"
 #include "tree/Tree.h"
 #include "tree/Node.h"
 #include "tree/Bud.h"
 #include <memory>
 #include <iostream>
 #include <stdlib.h>
+#include <stdio.h>
 using namespace std;
 
 int main(int argc, char **argv) {
-    unique_ptr<TreeViewer> viewer;
+    unique_ptr<TreeViewer> viewer(new TreeViewer());
     unique_ptr<Tree> tree(new Tree());
 
     int growCount = 0;
@@ -23,5 +24,9 @@ int main(int argc, char **argv) {
     }
     cout << "Exiting" << endl;
     tree->print();
-    viewer->draw(tree.get());
+    viewer->AddTree(tree.get());
+
+    while (true) {
+        viewer->draw();
+    }
 }
