@@ -48,13 +48,13 @@ public:
         glPushMatrix();
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        gluPerspective(10.0f, (float)width/(float)height, 1, 100);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         //gluLookAt( 10.0f,  10.0f, 10.0f,
         //            0.5f,  0.0f,  0.0f,
         //            0.0f,  0.0f,  1.0f);
-        gluLookAt( 10*sin(angle),  10*cos(angle), 10.0f,
+        gluPerspective(10.0f, (float)width/(float)height, 1, 100);
+        gluLookAt( 50*sin(angle),  50*cos(angle), 10.0f,
                     0.5f,  0.0f,  0.0f,
                     0.0f,  0.0f,  1.0f);
 
