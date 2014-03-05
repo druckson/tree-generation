@@ -1,14 +1,12 @@
 #ifndef ITREEPART_H
 #define ITREEPART_H
 #include "../display/MeshCollection.h"
+#include "../Vec3.h"
 
 class ITreePart {
-    //ITreePart(ITreePart const &) = delete;
-    //ITreePart &operator=(ITreePart const &) = delete;
-
     ITreePart *parent;
+    Vec3 position;
 public:
-    //ITreePart();
     virtual ~ITreePart() {}
     virtual ITreePart* grow() = 0;
     virtual void draw(MeshCollection *mesh) = 0;
