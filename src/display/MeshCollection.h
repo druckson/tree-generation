@@ -21,7 +21,6 @@ public:
         float angle;
         int pointCount = (segments+1)*2;
         vector<Vec3> points(pointCount);
-        cout << "Cylinder" << endl;
         
         for (int i=0; i<segments+1; i++) {
             angle = 2.0f*M_PI*(float)i/(float)segments;
@@ -33,7 +32,6 @@ public:
     }
 
     void draw() {
-        cout << "Test: " << this->meshes.size() << endl;
         for (int i=0; i<this->meshes.size(); i++) {
             this->meshes[i]->draw();
         }
