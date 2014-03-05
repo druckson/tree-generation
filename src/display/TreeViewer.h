@@ -45,14 +45,8 @@ public:
 
     void draw() {
         this->angle += 0.01;
-        glPushMatrix();
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        //gluLookAt( 10.0f,  10.0f, 10.0f,
-        //            0.5f,  0.0f,  0.0f,
-        //            0.0f,  0.0f,  1.0f);
         gluPerspective(10.0f, (float)width/(float)height, 1, 100);
         gluLookAt( 50*sin(angle),  50*cos(angle), 10.0f,
                     0.5f,  0.0f,  0.0f,
@@ -62,7 +56,6 @@ public:
         glClear(GL_COLOR_BUFFER_BIT);
         
         this->meshes->draw();
-        glPopMatrix();
 
         glFlush();
         glfwSwapBuffers(this->window);
