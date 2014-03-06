@@ -22,11 +22,17 @@ public:
         float angle;
         int pointCount = (segments+1)*2;
         vector<Vector3f> points(pointCount);
+
+        auto move = Translation3f(p1);
+        auto scale = Scaling(Vector3f((p1-p2).norm(), radius, radius));
+        Quaternionf rotate;
+        rotate.setFromTwoVectors(Vector3f(1.0f, 0.0f, 0.0f), p2-p1);
+        auto tf = move*scale*rotate;
         
         for (int i=0; i<segments+1; i++) {
             angle = 2.0f*M_PI*(float)i/(float)segments;
-            mesh->AddVertex(Vector3f(0.0f, radius*sin(angle), radius*cos(angle)));
-            mesh->AddVertex(Vector3f(1.0f, radius*sin(angle), radius*cos(angle)));
+            mesh->AddVertex(tf*Vector3f(0.0f, sin(angle), cos(angle)));
+            mesh->AddVertex(tf*Vector3f(1.0f, sin(angle), cos(angle)));
         }
 
         this->meshes.push_back(std::move(mesh));

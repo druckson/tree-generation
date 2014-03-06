@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
         cout << "Grow: " << i+1 << endl;
     }
     cout << "Exiting" << endl;
-    tree->print();
+    //tree->print();
     viewer->AddTree(tree.get());
 
     while (true) {

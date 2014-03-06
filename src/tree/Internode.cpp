@@ -13,7 +13,8 @@ ITreePart* Internode::grow() {
 
 void Internode::draw(MeshCollection *meshes) {
     meshes->AddCylinder(0.1f, 10, 
-        Eigen::Vector3f(), Eigen::Vector3f());
+        Eigen::Vector3f(0.0f, 0.0f, 0.0f), 
+        Eigen::Vector3f(1.0f, 0.0f, 0.0f));
 
     if (this->child) {
         this->child->draw(meshes);
