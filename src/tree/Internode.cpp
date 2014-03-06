@@ -11,13 +11,14 @@ ITreePart* Internode::grow() {
     return this;
 }
 
-void Internode::draw(MeshCollection *meshes) {
+void Internode::draw(Affine3f transform, MeshCollection *meshes) {
+    auto tip = transform*Translation3f(1.0f, 0.0f, 0.0f);
     meshes->AddCylinder(0.1f, 10, 
-        Eigen::Vector3f(0.0f, 0.0f, 0.0f), 
-        Eigen::Vector3f(1.0f, 0.0f, 0.0f));
+        transform*Eigen::Vector3f(0.0f, 0.0f, 0.0f), 
+        tip*Eigen::Vector3f(0.0f, 0.0f, 0.0f));
 
     if (this->child) {
-        this->child->draw(meshes);
+        this->child->draw(tip, meshes);
     }
 }
 

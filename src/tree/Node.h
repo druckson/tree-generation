@@ -15,7 +15,7 @@ public:
     Node();
     Node(ITreePart *branch1, ITreePart *branch2);
     ITreePart* grow();
-    void draw(MeshCollection *meshes);
+    void draw(Affine3f transform, MeshCollection *meshes);
     void print();
 };
 

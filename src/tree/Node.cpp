@@ -36,13 +36,25 @@ ITreePart* Node::grow() {
     return this;
 }
 
-void Node::draw(MeshCollection *meshes) {
+void Node::draw(Affine3f transform, MeshCollection *meshes) {
+    
+    Quaternionf rotate1;
+    Quaternionf rotate2;
+    rotate2.setFromTwoVectors(
+        Vector3f(0.0f, 1.0f, 0.0f),
+        Vector3f(0.0f, 0.2f, 0.8f));
     if (this->primary) {
-        this->primary->draw(meshes);
+        rotate1.setFromTwoVectors(
+            Vector3f(1.0f, 0.0f, 0.0f),
+            Vector3f(0.8f, 0.2f, 0.0f));
+        this->primary->draw(transform*rotate1*rotate2, meshes);
     }
 
     if (this->secondary) {
-        this->secondary->draw(meshes);
+        rotate1.setFromTwoVectors(
+            Vector3f(1.0f, 0.0f, 0.0f),
+            Vector3f(0.8f,-0.2f, 0.0f));
+        this->secondary->draw(transform*rotate1*rotate2, meshes);
     }
 }
 

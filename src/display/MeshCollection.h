@@ -27,7 +27,7 @@ public:
         auto scale = Scaling(Vector3f((p1-p2).norm(), radius, radius));
         Quaternionf rotate;
         rotate.setFromTwoVectors(Vector3f(1.0f, 0.0f, 0.0f), p2-p1);
-        auto tf = move*scale*rotate;
+        auto tf = move*rotate*scale;
         
         for (int i=0; i<segments+1; i++) {
             angle = 2.0f*M_PI*(float)i/(float)segments;

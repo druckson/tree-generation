@@ -8,7 +8,7 @@ struct Internode : public ITreePart {
     unique_ptr<ITreePart> child;
 
     ITreePart* grow();
-    void draw(MeshCollection *mesh);
+    void draw(Affine3f transform, MeshCollection *mesh);
     void print();
 };
 #endif

@@ -48,7 +48,7 @@ public:
         glEnableClientState(GL_VERTEX_ARRAY);
         glBindBuffer(GL_ARRAY_BUFFER, this->mesh); 
         glVertexPointer(3, GL_FLOAT, sizeof(Vector3f), 0);
-        glDrawArrays(this->format, 0, 3*this->vertices.size());
+        glDrawArrays(this->format, 0, this->vertices.size());
     }
 };
 #endif

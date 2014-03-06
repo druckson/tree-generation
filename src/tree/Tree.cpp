@@ -1,13 +1,15 @@
 #include "Tree.h"
 #include <iostream>
+#include <Eigen/Geometry>
 using namespace std;
+using namespace Eigen;
 
 Tree::Tree() {
     this->shoot.reset(new Bud());
 }
 
 void Tree::draw(MeshCollection *meshes) {
-    this->shoot->draw(meshes);
+    this->shoot->draw(Affine3f::Identity(), meshes);
 }
 
 void Tree::grow() {

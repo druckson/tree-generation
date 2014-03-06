@@ -48,9 +48,9 @@ public:
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         gluPerspective(10.0f, (float)width/(float)height, 1, 100);
-        gluLookAt( 50*sin(angle),  50*cos(angle), 10.0f,
-                    0.5f,  0.0f,  0.0f,
-                    0.0f,  0.0f,  1.0f);
+        gluLookAt( 5.0f, 90*sin(angle),  60*cos(angle),
+                    5.0f,  0.0f,  0.0f,
+                    1.0f,  0.0f,  0.0f);
 
         glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);

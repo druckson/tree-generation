@@ -39,7 +39,7 @@ ITreePart* Bud::grow() {
     }
 }
 
-void Bud::draw(MeshCollection *mesh) {}
+void Bud::draw(Affine3f transform, MeshCollection *mesh) {}
 
 void Bud::print() {
     cout << "Bud: " << sizeof(*this) << endl;

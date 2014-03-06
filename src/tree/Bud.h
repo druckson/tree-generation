@@ -22,7 +22,7 @@ public:
     Bud();
     Bud(BudFate fate);
     ITreePart* grow();
-    void draw(MeshCollection *mesh);
+    void draw(Affine3f transform, MeshCollection *mesh);
     void print();
 };
 

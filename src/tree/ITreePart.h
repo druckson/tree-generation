@@ -6,11 +6,10 @@ using namespace Eigen;
 
 class ITreePart {
     ITreePart *parent;
-    Vector3f position;
 public:
     virtual ~ITreePart() {}
     virtual ITreePart* grow() = 0;
-    virtual void draw(MeshCollection *mesh) = 0;
+    virtual void draw(Affine3f transform, MeshCollection *mesh) = 0;
     virtual void print() = 0;
 
     void SetParent(ITreePart *parent) {
