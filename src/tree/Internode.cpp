@@ -13,7 +13,7 @@ ITreePart* Internode::grow() {
 
 void Internode::draw(Affine3f transform, MeshCollection *meshes) {
     auto tip = transform*Translation3f(1.0f, 0.0f, 0.0f);
-    meshes->AddCylinder(0.1f, 10, 
+    meshes->AddCylinder(0.02f, 10,
         transform*Eigen::Vector3f(0.0f, 0.0f, 0.0f), 
         tip*Eigen::Vector3f(0.0f, 0.0f, 0.0f));
 

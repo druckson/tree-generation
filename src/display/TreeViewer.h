@@ -44,7 +44,7 @@ public:
     }
 
     void draw() {
-        this->angle += 0.01;
+        this->angle += 0.003;
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         gluPerspective(10.0f, (float)width/(float)height, 1, 100);
