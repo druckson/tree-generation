@@ -7,9 +7,14 @@
 #include <math.h>
 using namespace std;
 
+class TreeViewer;
+TreeViewer *globalViewer;
+
 void error_callback(int i, const char *message) {
     cout << "Error: " << message << endl;
 }
+
+void window_resize_callback(GLFWwindow *window, int width, int height);
 
 class TreeViewer {
     GLFWwindow *window;
@@ -28,14 +33,23 @@ public:
             exit(1);
         }
         glfwMakeContextCurrent(this->window);
+        glfwSetWindowSizeCallback(this->window, &window_resize_callback);
         glewInit();
 
         glfwGetFramebufferSize(this->window, &this->width, &this->height);
         glViewport(0, 0, this->width, this->height);
+
+        globalViewer = this;
     }
 
     ~TreeViewer() {
         glfwTerminate();
+    }
+
+    void Resize(int width, int height) {
+        this->width = width;
+        this->height = height;
+        glViewport(0, 0, this->width, this->height);
     }
 
     void AddTree(Tree *tree) {
@@ -62,5 +76,12 @@ public:
         glfwPollEvents();
     }
 };
+
+void window_resize_callback(GLFWwindow *window, int width, int height) {
+    if (globalViewer) {
+        cout << "Resize" << endl;
+        globalViewer->Resize(width, height);
+    }
+}
 
 #endif
