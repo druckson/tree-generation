@@ -1,5 +1,6 @@
 #include <memory>
 #include <iostream>
+#include <math.h>
 #include "Node.h"
 #include "Bud.h"
 using namespace std;
@@ -37,12 +38,10 @@ ITreePart* Node::grow() {
 }
 
 void Node::draw(Affine3f transform, MeshCollection *meshes) {
-    
+    float r = 2.0f*M_PI * (float)rand()/(float)RAND_MAX;
+
     Quaternionf rotate1;
-    Quaternionf rotate2;
-    rotate2.setFromTwoVectors(
-        Vector3f(0.0f, 1.0f, 0.0f),
-        Vector3f(0.0f, 0.2f, 0.8f));
+    AngleAxisf rotate2(r, Vector3f(1.0f, 0.0f, 0.0f));
     if (this->primary) {
         rotate1.setFromTwoVectors(
             Vector3f(1.0f, 0.0f, 0.0f),
